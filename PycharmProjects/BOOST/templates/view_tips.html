@@ -1,0 +1,137 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<head>
+  <style>
+    body {
+      background-color: #f3f3f3; /* Light gray background */
+    }
+
+    .table-container {
+      width: 100%;
+      margin: 20px auto;
+      max-height: 350px; /* Increased max height */
+      overflow-y: auto;
+      overflow-x: auto;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Scrollbar styles */
+    .table-container::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+      background-color: #333333; /* Dark grey */
+      border-radius: 10px;
+    }
+
+    .table-container::-webkit-scrollbar-track {
+      background-color: #444444; /* Darker grey */
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      background-color: #444444; /* Dark grey background */
+      color: #ffffff;
+      border-collapse: collapse;
+      text-align: left;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      background-color: #333333; /* Darker grey for header */
+      font-weight: bold;
+      height: 35px;
+      line-height: 35px;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .actions a {
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    .actions .edit {
+      background-color: #00bfae; /* Teal for edit */
+      color: white;
+    }
+
+    .actions .delete {
+      background-color: #f44336; /* Red for delete */
+      color: white;
+    }
+
+    .add-new {
+      display: block;
+      text-align: center;
+      margin: 20px auto;
+      background-color: #444444; /* Dark grey */
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .add-new:hover {
+      background-color: #333333; /* Darker grey for hover effect */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="table-container">
+    <form id="form1" name="form1" method="post" action="">
+      <table>
+        <thead>
+          <tr>
+            <th>Sl.No</th>
+            <th>Tip</th>
+            <th>Details</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.tips }}</td>
+            <td>{{ i.details }}</td>
+            <td>{{ i.date }}</td>
+            <td class="actions">
+              <a href="/edit_tip/{{ i.id }}" class="edit">Edit</a>
+              <a href="/view_tips_delete/{{ i.id }}" class="delete">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <a href="add_tip" class="add-new">Add New</a>
+</body>
+
+{% endblock %}

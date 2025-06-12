@@ -1,0 +1,126 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<head>
+  <style>
+    body {
+      background-color: #f3f3f3;
+    }
+
+    .table-container {
+      width: 100%; /* Increased width for a larger table */
+      margin: 20px auto;
+      max-height: 350px; /* Increased max height for a larger table */
+      overflow-y: auto;
+      overflow-x: auto;
+      border-radius: 12px; /* Rounded corners for the container */
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+      width: 100%; /* Table spans the container's width */
+      border-collapse: collapse;
+      background-color: #444444; /* Dark grey background */
+      color: #ffffff; /* White text */
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      background-color: #333333; /* Darker grey for the header */
+      font-weight: bold;
+      font-size: 18px; /* Slightly larger font for headers */
+    }
+
+    td {
+      font-size: 16px; /* Slightly larger font for table data */
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .reply-btn {
+      background-color: #00bfae; /* Teal for reply button */
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .pending-btn {
+      background-color: #f44336; /* Red for pending button */
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    /* Custom scrollbar styles */
+    .table-container::-webkit-scrollbar {
+      width: 10px; /* Width of vertical scrollbar */
+      height: 10px; /* Height of horizontal scrollbar */
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+      background-color: #333333; /* Dark grey for the scrollbar thumb */
+      border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+    }
+
+    .table-container::-webkit-scrollbar-track {
+      background-color: #444444; /* Darker grey for the track */
+      border-radius: 10px; /* Rounded corners for the scrollbar track */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="table-container">
+    <form action="" method="post">
+      <table>
+        <thead>
+          <tr>
+            <th>SlNo</th>
+            <th>Complaint</th>
+            <th>User</th>
+            <th>Date</th>
+            <th>Reply</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.complaint }}</td>
+            <td>{{ i.USER.name }}</td>
+            <td>{{ i.date }}</td>
+            <td class="center-text">
+              {% if i.reply == 'pending' %}
+              <a href="reply/{{ i.id }}" class="pending-btn">Reply</a>
+              {% else %}
+              <span>{{ i.reply }}</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+
+{% endblock %}

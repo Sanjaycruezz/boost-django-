@@ -1,0 +1,42 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+
+<style>
+  body {
+    text-align: center; /* Centers content */
+    font-family: Arial, sans-serif;
+  }
+
+  .exercise-container {
+    margin-top: 50px;
+  }
+
+  .exercise-container a {
+    display: inline-block;
+    width: 200px;
+    padding: 12px 20px;
+    margin: 10px;
+    background-color: #444; /* Dark grey */
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid white;
+    transition: 0.3s ease-in-out;
+  }
+
+  .exercise-container a:hover {
+    background-color: #666; /* Slightly lighter grey */
+    transform: scale(1.05); /* Subtle zoom effect */
+  }
+</style>
+
+<div class="exercise-container">
+  <a href="/biceps">BICEP</a><br>
+  <a href="/lunges">LUNGES</a><br>
+  <a href="/plank">PLANK</a><br>
+  <a href="/squat">SQUAT</a><br>
+</div>
+
+{% endblock %}

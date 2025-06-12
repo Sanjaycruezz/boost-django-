@@ -1,0 +1,86 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<body>
+  <style>
+    /* Container to make the table scrollable */
+    .table-container {
+      width: 110%; /* Larger table width */
+      margin: 20px auto;
+      max-height: 500px; /* Increased max height for scrolling */
+      overflow-y: auto; /* Enable vertical scrolling */
+      overflow-x: auto; /* Enable horizontal scrolling */
+      border-radius: 12px; /* Rounded edges for the container */
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for aesthetics */
+    }
+
+    /* Custom scrollbar styling */
+    .table-container::-webkit-scrollbar {
+      width: 10px; /* Width of the vertical scrollbar */
+      height: 10px; /* Height of the horizontal scrollbar */
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+      background-color: #333333; /* Dark gray color for scrollbar thumb */
+      border-radius: 10px; /* Rounded scrollbar thumb */
+    }
+
+    .table-container::-webkit-scrollbar-track {
+      background-color: #222222; /* Black color for scrollbar track */
+      border-radius: 10px; /* Rounded scrollbar track */
+    }
+
+    /* Table styles */
+    table {
+      width: 100%; /* Table spans the container */
+      background-color: #333333; /* Dark gray background */
+      border-collapse: collapse;
+      color: #ffffff; /* White text */
+      text-align: center;
+    }
+
+    th, td {
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      background-color: #222222; /* Black background for header */
+      font-weight: bold;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+
+  <div class="table-container">
+    <form id="form1" name="form1" method="post" action="">
+      <table>
+        <thead>
+          <tr>
+            <th>Sl.No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Height</th>
+            <th>Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.phone_no }}</td>
+            <td>{{ i.height }}</td>
+            <td>{{ i.weight }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+{% endblock %}

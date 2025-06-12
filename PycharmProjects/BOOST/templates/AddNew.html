@@ -1,0 +1,97 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<head>
+  <style>
+    body {
+      background-color: #f3f3f3; /* Light gray background */
+      padding: 0px;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #333333; /* Dark background for card */
+      color: #ffffff; /* White text */
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      width: 300px; /* Adjusted width */
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .card-body {
+      margin-bottom: 20px;
+    }
+
+    .card-body label {
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .card-body input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #555555; /* Darker border for input fields */
+      background-color: #444444; /* Dark gray input background */
+      color: #ffffff; /* White text inside inputs */
+    }
+
+    .card-actions {
+      text-align: center;
+    }
+
+    .card-actions input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #ffffff; /* White background for the submit button */
+      color: #333333; /* Dark text for the submit button */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .card-actions input[type="submit"]:hover {
+      background-color: #e0e0e0; /* Light gray on hover */
+    }
+  </style>
+</head>
+
+<body>
+<form action="/add_tip_post" method="post">
+  {% csrf_token %}
+  <div class="card-conitainer">
+    <div class="card">
+      <h3>Add Tip</h3>
+      <div class="card-body">
+        <label for="textfield">Tip</label>
+        <input type="text" name="textfield" id="textfield" required pattern="^[A-Za-z][A-Za-z0-9 ]*$" />
+
+        <label for="textfield2">Details</label>
+        <input type="text" name="textfield2" id="textfield2" required pattern="^[A-Za-z][A-Za-z0-9 ]*$" />
+      </div>
+      <div class="card-actions">
+        <input type="submit" name="Submit" value="Add Tip" />
+      </div>
+    </div>
+  </div>
+</form>
+</body>
+
+{% endblock %}

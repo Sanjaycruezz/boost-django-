@@ -1,0 +1,110 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<head>
+  <style>
+    body {
+      background-color: #f3f3f3;
+      padding: 0px;
+    }
+
+    .table-container {
+      width: 800px; /* Increased width for a larger table */
+      margin: 20px auto;
+      max-height: 350px; /* Increased max height for a larger table */
+      overflow-y: auto;
+      overflow-x: auto;
+      border-radius: 12px; /* Rounded corners for the container */
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+      width: 100%; /* Table spans the container's width */
+      border-collapse: collapse;
+      background-color: #444444; /* Dark grey background */
+      color: #ffffff; /* White text */
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff; /* Ensures white font for table cells */
+    }
+
+    th {
+      background-color: #333333; /* Darker grey for the header */
+      font-weight: bold;
+      font-size: 18px; /* Slightly larger font for headers */
+    }
+
+    td {
+      font-size: 16px; /* Slightly larger font for table data */
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Custom scrollbar styles */
+    .table-container::-webkit-scrollbar {
+      width: 10px; /* Width of vertical scrollbar */
+      height: 10px; /* Height of horizontal scrollbar */
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+      background-color: #333333; /* Dark grey for the scrollbar thumb */
+      border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+    }
+
+    .table-container::-webkit-scrollbar-track {
+      background-color: #444444; /* Darker grey for the track */
+      border-radius: 10px; /* Rounded corners for the scrollbar track */
+    }
+
+    .add-new {
+      display: block;
+      text-align: center;
+      margin: 20px auto;
+      background-color: #444444; /* Dark grey background */
+      color: #ffffff; /* White font color for the add button */
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .add-new:hover {
+      background-color: #333333; /* Darker grey for hover effect */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="table-container">
+    <form id="form1" name="form1" method="post" action="">
+      <table>
+        <thead>
+          <tr>
+            <th>SlNo</th>
+            <th>User</th>
+            <th>Feedback</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.USER.name }}</td>
+            <td>{{ i.feedback }}</td>
+            <td>{{ i.date }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+{% endblock %}

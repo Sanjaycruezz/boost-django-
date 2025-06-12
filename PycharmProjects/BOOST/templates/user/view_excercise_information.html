@@ -1,0 +1,100 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+
+<style>
+  body {
+    color: white;
+    background-color: #000;
+  }
+
+  .table-container {
+    margin: 20px auto;
+    max-width: 100%;
+    overflow-x: auto;
+    max-height: 300px; /* Reduced height for the table container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border-radius: 10px;
+    background-color: #111;
+  }
+
+  table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    color: white;
+  }
+
+  th, td {
+    padding: 12px;
+    border: 1px solid white;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  th {
+    background-color: #222;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Ensure header stays above content when scrolling */
+  }
+
+  tr:hover {
+    background-color: #333;
+    transition: 0.3s;
+  }
+
+  /* Custom scrollbar styling */
+  .table-container::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  .table-container::-webkit-scrollbar-track {
+    background: #111;
+  }
+
+  .table-container::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+  }
+
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  @media (max-width: 768px) {
+    .table-container {
+      width: 95%;
+    }
+
+    th, td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="table-container">
+  <form id="form1" name="form1" method="post" action="">
+    <table>
+      <tr>
+        <th>Si.No</th>
+        <th>Date</th>
+        <th>Exercise</th>
+        <th>Count</th>
+      </tr>
+      {% for i in data %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.excercise }}</td>
+        <td>{{ i.Count }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </form>
+</div>
+
+{% endblock %}

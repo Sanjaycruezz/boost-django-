@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+body 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000; /* Black background */
+}
+section
+{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+section::before
+{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#000, #444, #000); /* Gradient with shades of black */
+}
+section span
+{
+  position: relative;
+  display: block;
+  width: calc(6.25vw - 2px);
+  height: calc(6.25vw - 2px);
+  background: #111; /* Darker black for tiles */
+  border: 1px solid #fff; /* White border around tiles */
+  z-index: 2;
+  transition: 1.5s;
+}
+section span:hover
+{
+  background: #fff; /* White on hover */
+  transition: 0s;
+}
+
+section .signin
+{
+  position: absolute;
+  width: 400px;
+  background: #000; /* Black background for sign-in box */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  border: 1px solid #fff; /* White border around sign-in box */
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2); /* Light shadow */
+}
+section .signin .content
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 80px; /* Overall gap between elements */
+}
+section .signin .content h2
+{
+  font-size: 2em;
+  color: #fff; /* White text for heading */
+  text-transform: uppercase;
+  border-bottom: 2px solid #fff; /* White underline for heading */
+  padding-bottom: 10px;
+}
+section .signin .content .form
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Increased gap between input boxes */
+}
+section .signin .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+section .signin .content .form .inputBox input
+{
+  position: relative;
+  width: 100%;
+  background: #333; /* Dark gray for input background */
+  border: 1px solid #fff; /* White border for input box */
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 2px;
+  color: #fff; /* White text for input */
+  font-weight: 500;
+  font-size: 1em;
+}
+section .signin .content .form .inputBox i
+{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #aaa; /* Light gray for input icon */
+  transition: 0.5s;
+  pointer-events: none;
+}
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i
+{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: #fff;
+}
+.signin .content .form .links
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #fff; /* White top border for links section */
+  padding-top: 10px;
+}
+.signin .content .form .links a
+{
+  color: #fff; /* White links */
+  text-decoration: none;
+}
+.signin .content .form .links a:nth-child(2)
+{
+  color: #fff; /* White with bold for special link */
+  font-weight: 600;
+}
+.signin .content .form .inputBox input[type="submit"]
+{
+  padding: 10px;
+  background: #fff; /* White button */
+  color: #000; /* Black text */
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000; /* Black background */
+}
+section
+{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111; /* Static dark background */
+}
+section .signin
+{
+  width: 400px;
+  background: #000; /* Black background for sign-in box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  border: 1px solid #fff; /* White border */
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2); /* Subtle shadow */
+}
+section .signin .content
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px; /* Overall gap between elements */
+}
+section .signin .content h2
+{
+  font-size: 2em;
+  color: #fff; /* White text */
+  text-transform: uppercase;
+  border-bottom: 2px solid #fff; /* White underline */
+  padding-bottom: 10px;
+}
+section .signin .content .form
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between form elements */
+}
+section .signin .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+section .signin .content .form .inputBox input
+{
+  width: 100%;
+  background: #333; /* Dark gray background */
+  border: 1px solid #fff; /* White border */
+  outline: none;
+  padding: 15px;
+  border-radius: 2px;
+  color: #fff; /* White text */
+  font-size: 1em;
+}
+section .signin .content .form .links
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #fff; /* White border on top */
+  padding-top: 10px;
+}
+section .signin .content .form .links a
+{
+  color: #fff; /* White links */
+  text-decoration: none;
+}
+section .signin .content .form .links a:nth-child(2)
+{
+  font-weight: 600; /* Bold for special link */
+}
+section .signin .content .form .inputBox input[type="submit"]
+{
+  padding: 10px;
+  background: #fff; /* White button */
+  color: #000; /* Black text */
+  font-weight: 600;
+  font-size: 1.35em;
+  cursor: pointer;
+  border: 1px solid #fff; /* White border */
+}
+input[type="submit"]:active
+{
+  opacity: 0.6;
+}
+
+  cursor: pointer;
+  border: 1px solid #fff; /* White border for button */
+}
+input[type="submit"]:active
+{
+  opacity: 0.6;
+}
+@media (max-width: 900px)
+{
+  section span
+  {
+    width: calc(10vw - 2px);
+    height: calc(10vw - 2px);
+  }
+}
+@media (max-width: 600px)
+{
+  section span
+  {
+    width: calc(20vw - 2px);
+    height: calc(20vw - 2px);
+  }
+}

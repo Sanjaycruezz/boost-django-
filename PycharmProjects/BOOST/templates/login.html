@@ -1,0 +1,41 @@
+{% extends 'loginnew.html' %}
+{% block body %}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body background="v">
+<form id="form1" name="form1" method="post" action="/loginnew">
+  <table width="200" border="1">
+    <tr>
+      <td>Username</td>
+      <td><label>
+        <input type="text" name="textfield" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="text" name="textfield2" /></td>
+    </tr>
+
+
+      <tr>
+      <td>Forgot Password</td>
+      <td><input type="text" name="textfield2" /></td>
+          <a href="Forgot Password">link text</a>                                                                                             </ahref>
+    </tr>
+
+
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="LOGIN" />
+        </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

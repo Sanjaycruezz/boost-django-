@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<head>
+  <style>
+    body {
+      background-color: #f3f3f3; /* Light gray background */
+      padding: 0px;
+    }
+
+    table {
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 12px;
+      text-align: left;
+      font-size: 16px;
+      color: #333333; /* Dark text for table content */
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #555555; /* Darker border */
+      background-color: #444444; /* Dark gray input background */
+      color: #ffffff; /* White text inside inputs */
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #333333; /* Dark background for the submit button */
+      color: #ffffff; /* White text for the submit button */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555555; /* Lighter dark gray on hover */
+    }
+  </style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_tip_post">
+  <table>
+    <tr>
+      <td>Tip</td>
+      <td><label>
+        <input type="text" name="textfield" required pattern="^[A-Za-z][A-Za-z0-9 ]*$"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Details</td>
+      <td><input type="text" name="textfield2" required pattern="^[A-Za-z][A-Za-z0-9 ]*$" /></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div align="center">
+          <input type="submit" name="Submit" value="Add Tips" />
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+
+{% endblock %}

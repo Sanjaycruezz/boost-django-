@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<head>
+  <style>
+    body {
+      background-color: #f3f3f3;
+      padding: 0px;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #5e0f26;
+      color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .card-body {
+      margin-bottom: 20px;
+    }
+
+    .card-body label {
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .card-body input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .card-actions {
+      text-align: center;
+    }
+
+    .card-actions input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #00bfae;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .card-actions input[type="submit"]:hover {
+      background-color: #009c8f;
+    }
+  </style>
+</head>
+
+<body>
+<form action="/reply_post" method="post">
+  {% csrf_token %}
+  <div class="card-container">
+    <div class="card">
+      <h3>Reply Form</h3>
+      <div class="card-body">
+        <label for="textfield2">Enter your reply:</label>
+        <input type="text" name="textfield2" required pattern="^[A-Za-z][A-Za-z0-9 ]*$" id="textfield2" />
+      </div>
+      <div class="card-actions">
+        <input type="submit" name="Submit" value="Reply" />
+      </div>
+    </div>
+  </div>
+</form>
+</body>
+{% endblock %}

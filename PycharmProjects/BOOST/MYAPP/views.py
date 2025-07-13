@@ -591,7 +591,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 # Configure Google Gemini API
-GOOGLE_API_KEY = 'AIzaSyB_G0I9odde2-IwZHB1EgHGmBTKaFvSf6Y'  # Replace with your actual API key
+GOOGLE_API_KEY = 'Aefcgjhhf_35bbffghjhg_jjfthbbb'  # Replace with your actual API key
 genai.configure(api_key=GOOGLE_API_KEY)
 
 model = None
